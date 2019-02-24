@@ -1,0 +1,19 @@
+<form #blogCreateForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <app-ngx-editor name="description"  class="description"  [placeholder]="'Enter text here...'"
+                    [spellcheck]="true" [(ngModel)]="formData.description"></app-ngx-editor>
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input type="text" name="blogImage" placeholder="URL" [(ngModel)]="formData.blogImage" autocomplete="true" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label for="tags">Tags</label>
+    <input type="text" name="tags" placeholder="Tags" [(ngModel)]="formData.tags" autocomplete="true" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">Add</button>
+    <a routerLink="/blog" class="btn btn-link">Cancel</a>
+  </div>
+  <div [innerHtml]="htmlContent"></div>
+</form>
