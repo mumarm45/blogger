@@ -1,13 +1,11 @@
 <section>
-  <div class="row">
-      <div class="cardbox shadow-lg bg-white" *ngFor="let blog of blogs">
-        <app-blog-view [blog]="blog"></app-blog-view>
-        <div class="cardbox shadow-lg bg-white">
-          <input type="text" autocomplete="true" (keydown.enter)="addComment(blog,$event)" placeholder="Add comment"/>
-        </div>
-      </div>
+    <mat-card  *ngFor="let blog of blogs">
+      <app-blog-view [blog]="blog"></app-blog-view>
+      <!--<div class="cardbox shadow-lg bg-white">-->
+        <!--<input matInput type="text" autocomplete="true" (keydown.enter)="addComment(blog,$event)" placeholder="Add comment"/>-->
+      <!--</div>-->
+    </mat-card>>
 
-  </div>
 </section>
 
 

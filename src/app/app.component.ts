@@ -1,8 +1,10 @@
-import {Component, OnDestroy} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {User} from './model/User';
 import {AuthenticateService} from './service/authenticate.service';
 import {Subscription} from 'rxjs/index';
+import {MediaMatcher} from '@angular/cdk/layout';
+import {MatSidenav} from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +14,16 @@ import {Subscription} from 'rxjs/index';
 export class AppComponent implements OnDestroy {
   loginUser: User;
   loggedUserSub$: Subscription;
-
-  constructor(private router: Router, private authenticateService: AuthenticateService) {
+  private _mobileQueryListener: () => void;
+  mobileQuery: MediaQueryList;
+  constructor(private router: Router, private authenticateService: AuthenticateService, changeDetectorRef: ChangeDetectorRef,
+              media: MediaMatcher) {
     this.loggedUserSub$ = this.authenticateService.loginUser.subscribe(loggedUser => {
       this.loginUser = loggedUser;
     });
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
 
@@ -26,6 +33,7 @@ export class AppComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
     this.loggedUserSub$.unsubscribe();
   }
 }

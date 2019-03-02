@@ -12,4 +12,5 @@ export interface Blog {
   likes: number;
   description: string;
   comments?: any[];
+  title: string;
 }

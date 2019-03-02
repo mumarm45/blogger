@@ -10,6 +10,9 @@ import {AlertComponent} from './component/alert/alert.component';
 import {ErrorInterceptor} from './interceptor/error.interceptor';
 import { BlogComponent } from './component/blog/blog.component';
 import { BlogViewComponent } from './component/blog/blog-view/blog-view.component';
+import {MaterialModule} from './material-module/material-module.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -21,7 +24,11 @@ import { BlogViewComponent } from './component/blog/blog-view/blog-view.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
