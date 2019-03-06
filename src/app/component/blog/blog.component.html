@@ -1,11 +1,7 @@
 <section>
-    <mat-card  *ngFor="let blog of blogs">
+    <mat-card  *ngFor="let blog of blogs"  class="blog-view">
       <app-blog-view [blog]="blog"></app-blog-view>
-      <!--<div class="cardbox shadow-lg bg-white">-->
-        <!--<input matInput type="text" autocomplete="true" (keydown.enter)="addComment(blog,$event)" placeholder="Add comment"/>-->
-      <!--</div>-->
-    </mat-card>>
-
+    </mat-card>
 </section>
 
 

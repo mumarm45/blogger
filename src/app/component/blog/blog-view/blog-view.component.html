@@ -1,53 +1,22 @@
-<!--<img matListAvatar src="blog.avatar" alt="Blog" fxLayout="row">-->
-<!--<h3 matLine fxFlex> {{blog.name}} </h3>-->
-<!--<span matLine fxFlex>-->
-  <!--{{blog.createdAt| date}}-->
-<!--</span>-->
-<!--<p matLine fxFlex>-->
-  <!--<span> {{blog?.name}} </span>-->
-<!--</p>-->
-  <mat-card-header>
-    <img mat-card-avatar [src]="blog.avatar">
-    <mat-card-title>{{blog?.title}}</mat-card-title>
-    <mat-card-subtitle>{{blog?.name}}</mat-card-subtitle>
-    <mat-card-subtitle>Created at {{blog.createdAt| date}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content fxLayout="row" fxLayoutGap="25px">
+<mat-card-header>
+  <img mat-card-avatar [src]="blog.avatar">
+  <mat-card-title>{{blog?.title}}</mat-card-title>
+  <mat-card-subtitle>{{blog?.name}}</mat-card-subtitle>
+  <mat-card-subtitle>Created at {{blog.createdAt| date}}</mat-card-subtitle>
+</mat-card-header>
+<mat-card-content fxLayout="column">
+  <div fxLayout="row" fxLayoutGap="25px">
     <img fxFlex mat-card-image class="img-blog" [src]="blog.blogImage">
-    <p fxFlex [innerHtml]="blog.description.substring(0,50)"></p>
-  </mat-card-content>
-
-<!--<div class="cardbox-heading">-->
-  <!--<div class="media m-0">-->
-    <!--<div class="d-flex mr-3">-->
-      <!--<img class="img-fluid rounded-circle progressive" class="blog-image" data-src="{{blog.avatar}}"  alt="User">-->
-    <!--</div>-->
-    <!--<div class="media-body">-->
-      <!--<p class="m-0">{{blog.name}}</p>-->
-      <!--<small><span><i class="icon ion-md-time"></i>{{blog.createdAt| date}}</span></small>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
-<!--<div class="cardbox-item">-->
-  <!--<img class="img-fluid progressive" data-src="{{blog.blogImage}}" alt="Image">-->
-  <!--<p [innerHtml]="blog.description"></p>-->
-<!--</div>-->
-<!--<div class="cardbox-base">-->
-  <!--<ul>-->
-    <!--<li><a (click)="likeBlog(blog.id)"><i class="fa fa-thumbs-up"></i></a></li>-->
-    <!--<li><a ><span>{{blog.likes}} Likes</span></a></li>-->
-  <!--</ul>-->
-<!--</div>-->
-<!--<div  *ngIf="blog.tags" class="cardbox-base">-->
-  <!--<span>Tags</span>-->
-  <!--<ul >-->
-    <!--<li *ngFor="let tag of blog.tags.split('|')"><a><span>{{tag}}</span></a></li>-->
-  <!--</ul>-->
-<!--</div>-->
-<!--<div  *ngIf="blog.comments">-->
-  <!--<span>Comments</span>-->
-  <!--<ul class="cardbox-item">-->
-    <!--<li *ngFor="let comment of blog.comments"><a><span>{{comment?.comment}}</span></a></li>-->
-  <!--</ul>-->
-
-<!--</div>-->
+    <p fxFlex [innerHtml]="blog.description.substring(0,200)"></p>
+    <button (click)="openBlog(blog.id)" mat-button="" color="primary">read more</button>
+  </div>
+  <div fxLayout="row">
+    <p fxFlex>
+      <mat-icon>thumb_up_alt</mat-icon>
+      {{blog.likes}}
+    </p>
+    <mat-chip-list fxFlex>
+      <mat-chip *ngFor="let tag of blog.tags.split('|')">{{tag}}</mat-chip>
+    </mat-chip-list>
+  </div>
+</mat-card-content>

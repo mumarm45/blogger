@@ -12,22 +12,24 @@ import { BlogComponent } from './component/blog/blog.component';
 import { BlogViewComponent } from './component/blog/blog-view/blog-view.component';
 import {MaterialModule} from './material-module/material-module.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from "@angular/flex-layout";
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { BlogShowComponent } from './component/blog/blog-show/blog-show.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlertComponent,
     BlogComponent,
-    BlogViewComponent
+    BlogViewComponent,
+    PageNotFoundComponent,
+    BlogShowComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule
+    BrowserAnimationsModule
 
   ],
   providers: [{

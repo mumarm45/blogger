@@ -6,6 +6,7 @@ import {User} from '../../model/User';
 import {Subscription} from 'rxjs/index';
 import {BlogViewComponent} from './blog-view/blog-view.component';
 import {MediaMatcher} from '@angular/cdk/layout';
+import {Router} from '@angular/router';
 @Component({
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.css']
@@ -47,6 +48,7 @@ export class BlogComponent implements OnInit, OnDestroy {
       event.target.value = '';
     });
   }
+
 
   ngOnDestroy() {
     this.loggedUser$.unsubscribe();

@@ -1,0 +1,46 @@
+<div fxLayout="column">
+  <div fxFlex fxLayout="column">
+    <h1 fxFlex fxLayoutAlign="center center">{{blog.title}}</h1>
+    <img fxFlex mat-card-image class="img-blog" [src]="blog.blogImage">
+    <mat-chip-list fxLayoutAlign="end" fxFlex>
+      <mat-chip *ngFor="let tag of blog.tags.split('|')">{{tag}}</mat-chip>
+    </mat-chip-list>
+  </div>
+  <div fxFlex fxLayout="row">
+    <div fxFlex="10" fxLayout="column">
+      <div style="position: fixed" fxLayout="column wrap">
+        <p fxFlex>
+          <button mat-icon-button (click)="likeBlog(blog.id)">
+            <mat-icon>thumb_up_alt</mat-icon>
+          </button>
+          {{blog.likes}}
+        </p>
+        <p fxFlex>
+          <mat-icon>comment</mat-icon>
+          {{blog.comments.length}}
+        </p>
+      </div>
+    </div>
+    <p fxFlex [innerHtml]="blog.description"></p>
+  </div>
+  <mat-divider></mat-divider>
+  <h2>Comments</h2>
+  <mat-divider></mat-divider>
+  <div fxFlex="">
+    <mat-list>
+      <mat-list-item *ngFor="let commnt of blog.comments">
+        <img matListAvatar src="{{commnt?.avatar}}" alt="cmnt">
+        <h3 matLine> {{commnt?.comment}} </h3>
+        <p matLine>
+          <span> Added at: {{commnt?.createdAt | date}} </span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <!--<div fxFlex="">-->
+    <!--<mat-form-field>-->
+      <!--<textarea matInput placeholder="Textarea"></textarea>-->
+    <!--</mat-form-field>-->
+      <!--<input matInput type="text" autocomplete="true" (keydown.enter)="addComment(blog,$event)" placeholder="Add comment"/>-->
+  <!--</div>-->
+</div>

@@ -1,3 +1,5 @@
+import {Comment} from './Comment';
+
 /**
  * Created by mumarm45 on 23/02/2019.
  */
@@ -11,6 +13,6 @@ export interface Blog {
   tags: string;
   likes: number;
   description: string;
-  comments?: any[];
+  comments?: Comment[];
   title: string;
 }
