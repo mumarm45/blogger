@@ -1,21 +1,25 @@
-﻿﻿<h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
-        </div>
+﻿<div  fxLayout="column" fxLayoutAlign="center center">
+  ﻿<h2 fxFlex >Login</h2>
+  <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxFlex fxLayout="column">
+    <mat-form-field fxFlex>
+      <mat-label for="username">Username</mat-label>
+      <input matInput formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+      <mat-error *ngIf="submitted && f.username.errors && f.username.errors.required">
+        Username is required.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex>
+      <mat-label for="password">Password</mat-label>
+      <input matInput autocomplete="false"  type="password" formControlName="password"
+             [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+      <mat-error *ngIf="submitted && f.password.errors && f.password.errors.required">
+        Password is required.
+      </mat-error>
+    </mat-form-field>
+    <div class="form-group" fxFlex>
+      <button mat-raised-button color="primary" class="btn btn-primary">Login</button>
+      <a mat-button color="primary" routerLink="/user/register" class="btn btn-link">Register</a>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <button class="btn btn-primary">Login</button>
-        <a routerLink="/user/register" class="btn btn-link">Register</a>
-    </div>
-</form>
+  </form>
+</div>
+

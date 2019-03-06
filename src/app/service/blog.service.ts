@@ -4,7 +4,7 @@ import {User} from '../model/User';
 import {HttpClient} from '@angular/common/http';
 import {Blog} from '../model/Blog';
 import {Comment} from '../model/Comment';
-import {forkJoin} from 'rxjs/index';
+import {forkJoin} from 'rxjs';
 import {map} from 'rxjs/internal/operators';
 import {AuthenticateService} from './authenticate.service';
 
@@ -20,6 +20,9 @@ export class BlogService {
     return this.http.get<Blog[]>(`${environment.apiUrl}/blogs`);
   }
 
+  getOneBlog(id) {
+    return this.http.get<Blog>(`${environment.apiUrl}/blog/show/${id}`);
+  }
   getAllComments() {
     return this.http.get<Comment[]>(`${environment.apiUrl}/comments`);
   }
@@ -27,14 +30,16 @@ export class BlogService {
     return this.http.put(`${environment.apiUrl}/blogs/like`, { blogId: id});
   }
   getBlogs() {
-    return forkJoin(this.getAllBlogs(), this.getAllComments()).pipe(map(
-      ([blogs, comments]) => {
-        return blogs.map(blog => {
-          blog.comments = comments.filter(comment => comment.blogId === blog.id);
-          return blog;
-        });
-      }
-    ));
+    // return forkJoin(this.getAllBlogs(), this.getAllComments()).pipe(map(
+    //   ([blogs, comments]) => {
+    //     return blogs.map(blog => {
+    //       blog.comments = comments.filter(comment => comment.blogId === blog.id);
+    //       return blog;
+    //     });
+    //   }
+    // ));
+
+    return this.getAllBlogs();
   }
 
   createBlog(blog) {

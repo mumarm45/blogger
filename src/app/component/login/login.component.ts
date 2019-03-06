@@ -8,7 +8,8 @@ import {AuthenticateService} from '../../service/authenticate.service';
 import {take} from 'rxjs/internal/operators';
 import {AlertService} from '../../service/alert.service';
 
-@Component({templateUrl: 'login.component.html'})
+@Component({templateUrl: 'login.component.html',
+  styleUrls: ['./log.component.scss']})
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     submitted = false;

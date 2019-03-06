@@ -1,24 +1,24 @@
-import {Component, OnDestroy, OnInit, ViewChild} from "@angular/core";
-import {AuthenticateService} from "../../service/authenticate.service";
-import {BlogService} from "../../service/blog.service";
-import {Blog} from "../../model/Blog";
-import {User} from "../../model/User";
-import {Subscription} from "rxjs/index";
-import {BlogViewComponent} from "./blog-view/blog-view.component";
-
+import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AuthenticateService} from '../../service/authenticate.service';
+import {BlogService} from '../../service/blog.service';
+import {Blog} from '../../model/Blog';
+import {User} from '../../model/User';
+import {Subscription} from 'rxjs/index';
+import {BlogViewComponent} from './blog-view/blog-view.component';
+import {MediaMatcher} from '@angular/cdk/layout';
+import {Router} from '@angular/router';
 @Component({
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit, OnDestroy {
-
   blogs: Blog[];
   loggedUser: User;
   loggedUser$: Subscription;
   blogSub$: Subscription;
-//  @ViewChild(BlogViewComponent) blogChild: BlogViewComponent;
 
   constructor(private authenticateService: AuthenticateService, private blogService: BlogService) {
+
   }
 
   ngOnInit() {
@@ -48,6 +48,7 @@ export class BlogComponent implements OnInit, OnDestroy {
       event.target.value = '';
     });
   }
+
 
   ngOnDestroy() {
     this.loggedUser$.unsubscribe();

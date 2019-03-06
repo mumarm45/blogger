@@ -1,21 +1,22 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Blog} from '../../../model/Blog';
 import {BlogService} from "../../../service/blog.service";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-blog-view',
   templateUrl: './blog-view.component.html',
-  styleUrls: ['../blog.component.css']
+  styleUrls: ['./blog-view.component.css']
 })
 export class BlogViewComponent implements OnInit {
 
   @Input() blog: Blog;
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private router: Router) { }
 
   ngOnInit() {
   }
-
-  likeBlog(id) {
-    this.blogService.likePost(id).subscribe(res => {});
+  openBlog(id) {
+    this.router.navigate([`/blog/show/${id}`]);
   }
+
 }
