@@ -20,9 +20,12 @@
         <a mat-list-item routerLink="/user/login">Login</a>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content fxLayout="row">
       <alert></alert>
-      <router-outlet></router-outlet>
+      <div fxFlex="60">
+        <router-outlet></router-outlet>
+      </div>
+      <div fxFlex="30"></div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
