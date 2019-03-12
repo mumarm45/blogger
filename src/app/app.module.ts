@@ -15,6 +15,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { BlogShowComponent } from './component/blog/blog-show/blog-show.component';
 import {FlexAlignDirective, FlexLayoutModule} from '@angular/flex-layout';
+import {AddCommentComponent} from "./component/add-comment/add-comment.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {FlexAlignDirective, FlexLayoutModule} from '@angular/flex-layout';
     BlogComponent,
     BlogViewComponent,
     PageNotFoundComponent,
-    BlogShowComponent
+    BlogShowComponent,
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,
