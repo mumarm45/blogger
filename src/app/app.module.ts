@@ -14,6 +14,7 @@ import {MaterialModule} from './material-module/material-module.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { BlogShowComponent } from './component/blog/blog-show/blog-show.component';
+import {FlexAlignDirective, FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { BlogShowComponent } from './component/blog/blog-show/blog-show.componen
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule, FlexLayoutModule
 
   ],
   providers: [{
