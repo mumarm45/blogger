@@ -1,11 +1,9 @@
-<div fxLayout="column">
-  <div fxFlex fxLayout="column">
-    <img fxFlex mat-card-image class="img-blog" [src]="blog.blogImage">
-    <h1 fxFlex fxLayoutAlign="center center">{{blog.title}}</h1>
-    <mat-chip-list fxLayoutAlign="end" fxFlex>
-      <mat-chip *ngFor="let tag of blog.tags.split('|')">{{tag}}</mat-chip>
-    </mat-chip-list>
-  </div>
+<div fxFlex fxLayout="column">
+  <img fxFlex mat-card-image class="img-blog" [src]="blog.blogImage">
+  <h1 fxFlex fxLayoutAlign="center center">{{blog.title}}</h1>
+  <mat-chip-list fxLayoutAlign="end" fxFlex>
+    <mat-chip *ngFor="let tag of blog.tags.split('|')">{{tag}}</mat-chip>
+  </mat-chip-list>
   <p fxFlex [innerHtml]="blog.description"></p>
   <mat-divider></mat-divider>
   <div fxLayout="row">
@@ -34,10 +32,11 @@
       </mat-list-item>
     </mat-list>
   </div>
-  <!--<div fxFlex="">-->
-  <!--<mat-form-field>-->
-  <!--<textarea matInput placeholder="Textarea"></textarea>-->
-  <!--</mat-form-field>-->
-  <!--<input matInput type="text" autocomplete="true" (keydown.enter)="addComment(blog,$event)" placeholder="Add comment"/>-->
-  <!--</div>-->
 </div>
+
+<!--<div fxFlex="">-->
+<!--<mat-form-field>-->
+<!--<textarea matInput placeholder="Textarea"></textarea>-->
+<!--</mat-form-field>-->
+<!--<input matInput type="text" autocomplete="true" (keydown.enter)="addComment(blog,$event)" placeholder="Add comment"/>-->
+<!--</div>-->
