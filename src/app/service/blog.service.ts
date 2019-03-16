@@ -54,6 +54,7 @@ export class BlogService {
   }
 
   addComments(comment: Comment) {
+    comment = {...comment, avatar: this.autheticService.loginUserValue.avatar };
     return this.http.post(`${environment.apiUrl}/comments/add`, comment);
   }
 

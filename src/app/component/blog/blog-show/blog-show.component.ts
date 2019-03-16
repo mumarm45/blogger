@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {BlogService} from '../../../service/blog.service';
 import {ActivatedRoute} from '@angular/router';
 import {Blog} from '../../../model/Blog';
+import {AuthenticateService} from "../../../service/authenticate.service";
+import {Subscription} from "rxjs/index";
 
 @Component({
   selector: 'app-blog-show',
@@ -12,8 +14,8 @@ export class BlogShowComponent implements OnInit {
 
   id: string;
   blog: Blog;
-
-  constructor(private blogService: BlogService, private router: ActivatedRoute) {
+  loggedUser$ =  this.authenticationService.loginUser;
+  constructor(private blogService: BlogService, private router: ActivatedRoute, private authenticationService: AuthenticateService) {
   }
 
   ngOnInit() {

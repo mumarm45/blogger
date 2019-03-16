@@ -1,3 +1,10 @@
-<p>
-  add-comment works!
-</p>
+<form (ngSubmit)="addComment()" fxLayout="column">
+  <mat-form-field fxFlex="">
+    <textarea matInput  placeholder="Enter Comment" minlength="25" maxlength="1500"
+              [formControl]="comment" required></textarea>
+    <mat-hint align="end">Enter your comment (min of 25 & max of 1,500 characters)({{comment.value.length+'/'+1500}})</mat-hint>
+    <mat-error *ngIf="!comment.valid">Enter your comment (min of 25 & max of 1,500 characters)(30/1500)
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button  fxFlex="" type="submit" [disabled]="!comment.valid">Submit</button>
+</form>

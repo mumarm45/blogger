@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {BlogComponent} from './component/blog/blog.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {BlogShowComponent} from './component/blog/blog-show/blog-show.component';
+import {AuthGuard} from "./route/auth.guard";
 
 const routes: Routes = [
   { path: 'blog', component: BlogComponent },

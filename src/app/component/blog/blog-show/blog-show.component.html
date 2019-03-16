@@ -1,4 +1,4 @@
-<div fxFlex fxLayout="column">
+<div fxFlex fxLayout="column" >
   <img fxFlex mat-card-image class="img-blog" [src]="blog.blogImage">
   <h1 fxFlex fxLayoutAlign="center center">{{blog.title}}</h1>
   <mat-chip-list fxLayoutAlign="end" fxFlex>
@@ -32,11 +32,7 @@
       </mat-list-item>
     </mat-list>
   </div>
+  <mat-divider></mat-divider>
+  <app-add-comment [blog]="blog" *ngIf="(loggedUser$| async)?.username"></app-add-comment>
 </div>
 
-<!--<div fxFlex="">-->
-<!--<mat-form-field>-->
-<!--<textarea matInput placeholder="Textarea"></textarea>-->
-<!--</mat-form-field>-->
-<!--<input matInput type="text" autocomplete="true" (keydown.enter)="addComment(blog,$event)" placeholder="Add comment"/>-->
-<!--</div>-->

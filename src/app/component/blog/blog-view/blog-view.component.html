@@ -3,8 +3,8 @@
   <mat-card-subtitle>{{blog?.name}}</mat-card-subtitle>
   <mat-card-subtitle>Created at {{blog.createdAt| date}}</mat-card-subtitle>
 </mat-card-header>
-<mat-card-content fxLayout="column">
-  <div fxLayout="row" fxLayoutGap="25px">
+<mat-card-content fxLayout="column" fxLayout.xs="row">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="25px">
     <img fxFlex mat-card-image class="img-blog" (click)="openBlog(blog.id)" [src]="blog.blogImage">
     <span>{{blog?.title}}</span>
   </div>
@@ -17,4 +17,5 @@
       <mat-chip *ngFor="let tag of blog.tags.split('|')">{{tag}}</mat-chip>
     </mat-chip-list>
   </div>
+  <mat-divider></mat-divider>
 </mat-card-content>

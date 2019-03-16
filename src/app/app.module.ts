@@ -15,7 +15,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { BlogShowComponent } from './component/blog/blog-show/blog-show.component';
 import {FlexAlignDirective, FlexLayoutModule} from '@angular/flex-layout';
-import {AddCommentComponent} from "./component/add-comment/add-comment.component";
+import {AddCommentComponent} from './component/add-comment/add-comment.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {AddCommentComponent} from "./component/add-comment/add-comment.component
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule, FlexLayoutModule
+    BrowserAnimationsModule, FlexLayoutModule, ReactiveFormsModule, FormsModule,
 
   ],
   providers: [{

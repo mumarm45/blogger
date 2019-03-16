@@ -35,19 +35,7 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.authenticateService.logout();
   }
 
-  addComment(blog, event) {
-    if (!event.target.value) {
-      return;
-    }
-    if (!blog.comments) {
-      blog.comments = [];
-    }
-    const comment = {comment: event.target.value, blogId: blog.id};
-    this.blogService.addComments(comment).subscribe(newComment => {
-      blog.comments.push(newComment);
-      event.target.value = '';
-    });
-  }
+
 
 
   ngOnDestroy() {
