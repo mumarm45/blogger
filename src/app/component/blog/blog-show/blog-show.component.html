@@ -33,6 +33,9 @@
     </mat-list>
   </div>
   <mat-divider></mat-divider>
-  <app-add-comment [blog]="blog" *ngIf="(loggedUser$| async)?.username"></app-add-comment>
+  <app-add-comment [blog]="blog" *ngIf="(loggedUser$| async)?.username;else loggedOut"></app-add-comment>
 </div>
 
+<ng-template #loggedOut>
+  Login for comment
+</ng-template>
